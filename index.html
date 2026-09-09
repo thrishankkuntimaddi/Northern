@@ -3992,6 +3992,17 @@ function initAuthListener() {
     if(user) {
       state.authUser = user;
       console.log('[Auth] User signed in:', user.email);
+      setStatus('connecting','Connecting…');
+
+      // Initialize Firestore data now that user is authenticated
+      try {
+        await initTrip();
+        await initCoordinators();
+        startListeners();
+      } catch(err) {
+        console.error('[Firestore Init]', err);
+        setStatus('error','Error');
+      }
 
       // Create / Sync Firestore user profile
       try {
@@ -4055,6 +4066,7 @@ function initAuthListener() {
       updateHeaderUserProfile();
       listenUsersCollection();
       showScreen('home');
+      showToast('👋 Welcome, ' + (state.userDoc?.displayName || user.displayName || 'User') + '!');
 
     } else {
       console.log('[Auth] No user signed in');
@@ -4270,21 +4282,9 @@ function showFatalError(msg){ document.getElementById('login-screen').innerHTML=
 // ========================================
 async function start(){
   if(!db) return;
-  setStatus('connecting','Connecting…');
-  try {
-    await initTrip();
-    await initCoordinators();
-    startListeners();
-    initAuthListener();
-  } catch(err) {
-    console.error('[Start]',err);
-    if(err.code==='permission-denied'){
-      document.getElementById('home-loading').classList.add('hidden');
-      document.getElementById('home-error').classList.remove('hidden');
-      setEl('home-err-msg','Permission denied. Check Firestore security rules.');
-    }
-    setStatus('error','Error');
-  }
+  // Register auth listener first — it drives the entire app initialization
+  // Firestore ops (initTrip, initCoordinators) run AFTER user is authenticated
+  initAuthListener();
 }
 
 // Boot
