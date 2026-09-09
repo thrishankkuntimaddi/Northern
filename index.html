@@ -496,27 +496,114 @@ input,select,textarea{font-family:var(--font)}
 .itin-day { font-size: 11px; font-weight: 800; color: var(--primary); }
 .itin-cities { font-size: 12px; font-weight: 700; color: var(--text); margin-top: 2px; }
 
-/* ========================================
-   PHASE 5 — SETTLEMENT & REPORTS STYLES
+/* =====================================/* ========================================
+   PHASE 6 — AUTH, USER MANAGEMENT & ROLE STYLES
    ======================================== */
-.settlement-hero { margin: 0 16px 14px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 20px; padding: 20px; color: #fff; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-.settlement-hero-lbl { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
-.settlement-hero-val { font-size: 28px; font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
-.settlement-status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 800; }
-.settlement-status-badge.reconciled { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
-.settlement-status-badge.pending { background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.google-btn {
+  width: 100%;
+  max-width: 320px;
+  height: 52px;
+  background: #ffffff;
+  color: #1f2937;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  margin: 0 auto 16px;
+}
+.google-btn:hover {
+  background: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-color: #d1d5db;
+}
+.google-btn:active {
+  transform: translateY(0);
+}
+.google-icon {
+  width: 22px;
+  height: 22px;
+}
 
-.settlement-card { background: var(--bg-card); border-radius: 18px; padding: 16px; margin: 0 16px 12px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); }
-.settlement-card-hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.settlement-user-info { display: flex; align-items: center; gap: 10px; }
-.settlement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: var(--bg-card2); border-radius: 12px; padding: 10px 12px; margin: 10px 0; border: 1px solid var(--border-light); text-align: center; }
-.settlement-val-sm { font-size: 14px; font-weight: 800; color: var(--text); }
-.settlement-lbl-sm { font-size: 9px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.role-badge.role-admin { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+.role-badge.role-coordinator { background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3); }
+.role-badge.role-viewer { background: rgba(107, 114, 128, 0.15); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.3); }
 
-.export-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 0 16px 14px; }
-@media (min-width: 640px) { .export-grid { grid-template-columns: 1fr 1fr; } }
-.export-btn { padding: 12px 14px; border-radius: 14px; background: var(--bg-card); border: 1.5px solid var(--border); color: var(--text); font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.2s; }
-.export-btn:hover { background: var(--bg-card2); border-color: var(--primary); }
+.user-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 0 16px 10px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.user-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.user-avatar-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-light);
+}
+.user-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.user-card-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.user-role-select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.unauthorized-notice {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px dashed rgba(239, 68, 68, 0.3);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin: 12px 16px;
+  font-size: 12px;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 @media print {
   body { background: #fff !important; color: #000 !important; }
@@ -544,20 +631,36 @@ input,select,textarea{font-family:var(--font)}
   .print-table th, .print-table td { border: 1px solid #cbd5e1; padding: 6px 8px; font-size: 10px; text-align: left; color: #0f172a; }
   .print-table th { background: #f8fafc; font-weight: 800; text-transform: uppercase; }
 }
-</style>
+</style>style>
 </head>
 <body>
 
 <!-- ====================================================
      LOGIN SCREEN
      ==================================================== -->
+<!-- ====================================================
+     LOGIN / AUTH SCREEN
+     ==================================================== -->
 <div id="login-screen" class="active">
   <div class="login-emoji">✈️</div>
   <div class="login-title">VARANASI TRIP 2026</div>
   <div class="login-sub">Agra · Mathura · Vrindavan · Ayodhya · Varanasi</div>
-  <div class="login-label">WHO ARE YOU?</div>
+  
+  <div style="margin: 24px 0 16px; width: 100%; text-align: center;">
+    <button class="google-btn" id="google-login-btn">
+      <svg class="google-icon" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+      </svg>
+      <span>Sign in with Google</span>
+    </button>
+  </div>
+
+  <div class="login-label">OR QUICK SWITCH (DEMO/TESTING)</div>
   <div class="login-btns" id="login-btns"></div>
-  <div class="login-note">🔒 Local identity only — no authentication yet</div>
+  <div class="login-note">🔒 Secured via Firebase Auth & Firestore Rules</div>
 </div>
 
 <!-- ====================================================
@@ -1017,6 +1120,71 @@ input,select,textarea{font-family:var(--font)}
     </div>
 
     <div style="height:24px;"></div>
+    <!-- ======= USERS & ROLES SCREEN ======= -->
+    <div id="users-screen" class="screen">
+      <header class="hdr" style="margin-bottom:14px;">
+        <div>
+          <div class="hdr-title">👥 Team & Roles</div>
+          <div class="hdr-sub">Manage user permissions and access roles</div>
+        </div>
+      </header>
+
+      <div id="users-admin-notice"></div>
+
+      <div class="section-hd"><span class="section-label">REGISTERED USERS</span></div>
+      <div id="users-list-container">
+        <div style="text-align:center;padding:24px;color:var(--text-muted);">Loading team members…</div>
+      </div>
+      <div style="height:24px;"></div>
+    </div>
+
+    <!-- ======= SETTINGS SCREEN ======= -->
+    <div id="settings-screen" class="screen">
+      <header class="hdr" style="margin-bottom:14px;">
+        <div>
+          <div class="hdr-title">⚙️ App Settings</div>
+          <div class="hdr-sub">Account details, theme, and data tools</div>
+        </div>
+      </header>
+
+      <!-- Account Profile Card -->
+      <div class="settlement-card">
+        <div class="settlement-card-hd">
+          <div class="settlement-user-info">
+            <div class="hero-avatar" id="stg-avatar">U</div>
+            <div>
+              <div style="font-size:15px;font-weight:800;color:var(--text);" id="stg-name">User Name</div>
+              <div style="font-size:12px;color:var(--text-muted);" id="stg-email">user@gmail.com</div>
+            </div>
+          </div>
+          <div id="stg-role-badge"></div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;">
+          <button class="btn btn-secondary btn-sm" id="stg-signout-btn">🚪 Sign Out</button>
+        </div>
+      </div>
+
+      <!-- Theme & Security -->
+      <div class="section-hd"><span class="section-label">PREFERENCES & SECURITY</span></div>
+      <div style="padding:0 16px 14px;">
+        <div class="export-btn" id="stg-theme-toggle">
+          <span>🌗</span>
+          <span>Toggle Color Theme</span>
+        </div>
+      </div>
+
+      <!-- Hardening & Maintenance -->
+      <div class="section-hd"><span class="section-label">DATA HARDENING & MAINTENANCE</span></div>
+      <div style="padding:0 16px 14px;">
+        <button class="btn btn-secondary" id="stg-migrate-data-btn">
+          <span>🛡️</span>
+          <span>Validate & Migrate Legacy Data Schema</span>
+        </button>
+      </div>
+
+      <div style="height:24px;"></div>
+    </div>
+
   </div>
 
   <!-- BOTTOM NAV -->
@@ -1033,6 +1201,12 @@ input,select,textarea{font-family:var(--font)}
     </button>
     <button class="nav-item" data-screen="settlement" aria-label="Settlement">
       <span class="nav-icon">📊</span><span class="nav-label">Settlement</span>
+    </button>
+    <button class="nav-item" data-screen="users" aria-label="Users">
+      <span class="nav-icon">👤</span><span class="nav-label">Users</span>
+    </button>
+    <button class="nav-item" data-screen="settings" aria-label="Settings">
+      <span class="nav-icon">⚙️</span><span class="nav-label">Settings</span>
     </button>
   </nav>
 </div>
@@ -1428,6 +1602,9 @@ import {
   doc, collection, getDoc, setDoc, updateDoc, addDoc, deleteDoc,
   onSnapshot, serverTimestamp, writeBatch
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import {
+  getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged
+} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey:            "AIzaSyD1yWuWLgRkMq9OZl3npCPh5vLouEMwaMk",
@@ -1439,11 +1616,12 @@ const firebaseConfig = {
   measurementId:     "G-ZRVKMF9SCY"
 };
 
-let app, db;
+let app, db, auth;
 try {
-  app = initializeApp(firebaseConfig);
-  db  = getFirestore(app);
-  console.log('[Firebase] Initialized');
+  app  = initializeApp(firebaseConfig);
+  db   = getFirestore(app);
+  auth = getAuth(app);
+  console.log('[Firebase] Initialized with Auth & Firestore');
 } catch (err) {
   console.error('[Firebase] Init failed:', err);
   showFatalError('Firebase initialization failed: ' + err.message);
@@ -1512,6 +1690,8 @@ const expensesRef    = () => collection(db, 'trips', TRIP_ID, 'expenses');
 const expenseRef     = id  => doc(db, 'trips', TRIP_ID, 'expenses', id);
 const settlementsRef = () => collection(db, 'trips', TRIP_ID, 'settlements');
 const settlementRef  = id  => doc(db, 'trips', TRIP_ID, 'settlements', id);
+const usersRef       = () => collection(db, 'trips', TRIP_ID, 'users');
+const userRef        = id  => doc(db, 'trips', TRIP_ID, 'users', id);
 
 // ========================================
 // Application State
@@ -1523,6 +1703,10 @@ const state = {
   travelers:    [],
   expenses:     [],     // PHASE 3
   settlements:  [],     // PHASE 5
+  allUsers:     [],     // PHASE 6
+  authUser:     null,   // PHASE 6
+  userDoc:      null,   // PHASE 6
+  userRole:     'viewer',// PHASE 6: 'admin' | 'coordinator' | 'viewer'
   currentUser:  null,
   loading:      true,
 };
@@ -1532,6 +1716,7 @@ let unsubCoords      = null;
 let unsubTravelers   = null;
 let unsubExpenses    = null; // PHASE 3
 let unsubSettlements = null; // PHASE 5
+let unsubUsers       = null; // PHASE 6
 
 // Modal state
 let _editCoordId           = null;
@@ -1560,12 +1745,15 @@ let _tFilter     = 'active';
 let _tSearch     = '';
 
 // ========================================
-// Permission Helpers
+// Permission Helpers (Phase 6)
 // ========================================
-const isAdmin         = () => state.currentUser?.isAdmin === true;
+const isAdmin         = () => state.userRole === 'admin' || state.userDoc?.role === 'admin' || state.currentUser?.isAdmin === true;
+const isCoordinator   = () => isAdmin() || state.userRole === 'coordinator' || state.userDoc?.role === 'coordinator';
+const isViewer        = () => !isAdmin() && !isCoordinator();
 const canEditCoord    = () => isAdmin();
-const canEditTraveler = () => true;
-const canEditExpense  = (exp) => isAdmin() || exp?.createdBy === state.currentUser?.id || exp?.coordinatorId === state.currentUser?.id;
+const canEditTraveler = () => !isViewer();
+const canEditExpense  = (exp) => isAdmin() || (isCoordinator() && (exp?.createdBy === state.authUser?.uid || exp?.coordinatorId === state.currentUser?.id || exp?.paidByCoordId === state.currentUser?.id));
+const canEditTransfer = (tr) => isAdmin() || (isCoordinator() && (tr?.fromCoordId === state.currentUser?.id || tr?.toCoordId === state.currentUser?.id));
 
 // ========================================
 // Utility Functions
@@ -3748,7 +3936,7 @@ function showErr(id,msg){ const e=document.getElementById(id); if(e)e.textConten
 function clearErrs(ids){ ids.forEach(id=>showErr(id,'')); }
 
 // ========================================
-// Navigation
+// Navigation (Phase 6)
 // ========================================
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -3759,15 +3947,296 @@ function showScreen(name) {
   if(name==='expenses')   { populateExpenseFilterSelects(); renderExpenseScreen(); }
   if(name==='groups')     renderGroupsData();
   if(name==='settlement') renderSettlementScreen();
+  if(name==='users')      renderUsersScreen();
+  if(name==='settings')   renderSettingsScreen();
 }
 document.querySelectorAll('.nav-item[data-screen]').forEach(btn=>btn.addEventListener('click',()=>showScreen(btn.dataset.screen)));
-document.getElementById('add-expense-fab').addEventListener('click',openAddExpenseModal);
+document.getElementById('add-expense-fab').addEventListener('click',()=>{
+  if(isViewer()) { showToast('⚠️ Viewers cannot add expenses. Contact Admin.'); return; }
+  openAddExpenseModal();
+});
 document.getElementById('home-view-groups').addEventListener('click',()=>showScreen('groups'));
 document.getElementById('home-view-expenses').addEventListener('click',()=>showScreen('expenses'));
 
 // ========================================
-// Login / User Selection
+// Phase 6 — Authentication & User Management
 // ========================================
+document.getElementById('google-login-btn').addEventListener('click', handleGoogleSignIn);
+document.getElementById('stg-signout-btn').addEventListener('click', handleSignOut);
+document.getElementById('stg-theme-toggle').addEventListener('click', ()=>{
+  const c=(()=>{try{return localStorage.getItem('ns_theme')||'system';}catch{return 'system';}})();
+  const n=c==='system'?'light':c==='light'?'dark':'system';
+  applyTheme(n);
+});
+document.getElementById('stg-migrate-data-btn').addEventListener('click', migrateLegacyExpenses);
+
+async function handleGoogleSignIn() {
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+    showToast('✨ Signed in with Google!');
+  } catch (err) {
+    console.error('[Auth] Google Sign-in error:', err);
+    showToast('❌ Google Sign-In failed: ' + (err.message||err));
+  }
+}
+
+async function handleSignOut() {
+  try {
+    await signOut(auth);
+    showToast('Logged out');
+  } catch (err) {
+    console.error('[Auth] Sign-out error:', err);
+  }
+}
+
+function initAuthListener() {
+  onAuthStateChanged(auth, async (user) => {
+    if(user) {
+      state.authUser = user;
+      console.log('[Auth] User signed in:', user.email);
+
+      // Create / Sync Firestore user profile
+      try {
+        const uSnap = await getDoc(userRef(user.uid));
+        if(!uSnap.exists()) {
+          // Determine initial role
+          let role = 'viewer';
+          let coordId = '';
+          const nameLower = (user.displayName||'').toLowerCase();
+          const emailLower = (user.email||'').toLowerCase();
+
+          if(emailLower.includes('manideep') || nameLower.includes('manideep')) {
+            role = 'admin'; coordId = 'manideep';
+          } else {
+            const matchedCoord = state.coordinators.find(c =>
+              c.name.toLowerCase().includes(nameLower) || nameLower.includes(c.name.toLowerCase())
+            );
+            if(matchedCoord) {
+              role = matchedCoord.isAdmin ? 'admin' : 'coordinator';
+              coordId = matchedCoord.id;
+            }
+          }
+
+          const newUser = {
+            uid: user.uid,
+            email: user.email || '',
+            displayName: user.displayName || user.email?.split('@')[0] || 'User',
+            photoURL: user.photoURL || '',
+            role: role,
+            coordId: coordId,
+            createdAt: serverTimestamp(),
+            lastLogin: serverTimestamp(),
+          };
+          await setDoc(userRef(user.uid), newUser);
+          state.userDoc = newUser;
+        } else {
+          state.userDoc = uSnap.data();
+          await updateDoc(userRef(user.uid), { lastLogin: serverTimestamp(), photoURL: user.photoURL || '' });
+        }
+
+        state.userRole = state.userDoc?.role || 'viewer';
+        
+        // Link to matching coordinator object if available
+        if(state.userDoc?.coordId) {
+          const matched = coordById(state.userDoc.coordId);
+          if(matched) state.currentUser = matched;
+        }
+        if(!state.currentUser) {
+          state.currentUser = { id: user.uid, name: user.displayName||'User', isAdmin: state.userRole==='admin', groupName: 'Member' };
+        }
+
+      } catch(err) {
+        console.error('[Auth] User profile sync failed:', err);
+      }
+
+      // Hide login, show app shell
+      document.getElementById('login-screen').classList.remove('active');
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('app-shell').style.display = 'block';
+
+      updateHeaderUserProfile();
+      listenUsersCollection();
+      showScreen('home');
+
+    } else {
+      console.log('[Auth] No user signed in');
+      state.authUser = null;
+      state.userDoc  = null;
+      state.userRole = 'viewer';
+      document.getElementById('app-shell').style.display = 'none';
+      document.getElementById('login-screen').style.display = 'flex';
+      document.getElementById('login-screen').classList.add('active');
+      buildLoginScreen();
+    }
+  });
+}
+
+function listenUsersCollection() {
+  if(unsubUsers) return;
+  unsubUsers = onSnapshot(usersRef(), snap => {
+    const list = [];
+    snap.forEach(d => list.push({id:d.id, ...d.data()}));
+    state.allUsers = list;
+    if(document.getElementById('users-screen').classList.contains('active')) {
+      renderUsersScreen();
+    }
+  }, err => console.warn('[Users] Listener warning:', err));
+}
+
+function updateHeaderUserProfile() {
+  const user = state.authUser;
+  const name = state.userDoc?.displayName || user?.displayName || state.currentUser?.name || 'User';
+  const role = state.userRole || 'viewer';
+  const photo = user?.photoURL;
+
+  // Header Avatar
+  const avEl = document.getElementById('hdr-avatar');
+  if(avEl) {
+    if(photo) {
+      avEl.innerHTML = `<img src="${escH(photo)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />`;
+    } else {
+      avEl.textContent = getInitials(name);
+    }
+  }
+
+  setEl('hdr-name', name);
+  
+  const roleBadgeHtml = role === 'admin' 
+    ? '<span class="role-badge role-admin">👑 Admin</span>' 
+    : role === 'coordinator' 
+    ? '<span class="role-badge role-coordinator">📋 Coordinator</span>' 
+    : '<span class="role-badge role-viewer">👁️ Viewer</span>';
+
+  const hdrRole = document.getElementById('hdr-role');
+  if(hdrRole) hdrRole.innerHTML = roleBadgeHtml;
+
+  // Settings screen profile
+  setEl('stg-name', name);
+  setEl('stg-email', user?.email || 'Guest User');
+  const stgBadge = document.getElementById('stg-role-badge');
+  if(stgBadge) stgBadge.innerHTML = roleBadgeHtml;
+  const stgAv = document.getElementById('stg-avatar');
+  if(stgAv) {
+    if(photo) stgAv.innerHTML = `<img src="${escH(photo)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />`;
+    else stgAv.textContent = getInitials(name);
+  }
+
+  // Adjust FAB visibility
+  const fab = document.getElementById('add-expense-fab');
+  if(fab) {
+    if(isViewer()) {
+      fab.style.opacity = '0.5';
+    } else {
+      fab.style.opacity = '1';
+    }
+  }
+}
+
+function renderUsersScreen() {
+  const container = document.getElementById('users-list-container');
+  const adminNotice = document.getElementById('users-admin-notice');
+  if(!container) return;
+
+  if(!isAdmin()) {
+    if(adminNotice) adminNotice.innerHTML = '<div class="unauthorized-notice">🔒 Role editing is restricted to Admins. You are currently viewing as ' + escH(state.userRole.toUpperCase()) + '.</div>';
+  } else {
+    if(adminNotice) adminNotice.innerHTML = '<div style="margin:0 16px 14px;font-size:12px;color:var(--text-muted);">👑 As Admin, you can promote users to Coordinators or Admins and bind them to specific trip groups.</div>';
+  }
+
+  if(!state.allUsers || state.allUsers.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:24px;color:var(--text-muted);">No registered users yet. Have team members sign in via Google.</div>';
+    return;
+  }
+
+  container.innerHTML = state.allUsers.map(u => {
+    const isSelf = u.uid === state.authUser?.uid;
+    const roleClass = u.role === 'admin' ? 'role-admin' : u.role === 'coordinator' ? 'role-coordinator' : 'role-viewer';
+    const avatar = u.photoURL 
+      ? `<img src="${escH(u.photoURL)}" class="user-avatar-img" />`
+      : `<div class="hero-avatar" style="width:42px;height:42px;font-size:16px;">${escH(getInitials(u.displayName||'U'))}</div>`;
+
+    const roleSelector = isAdmin() ? `
+      <select class="user-role-select" onchange="window._changeUserRole('${u.uid}', this.value)">
+        <option value="viewer" ${u.role==='viewer'?'selected':''}>Viewer</option>
+        <option value="coordinator" ${u.role==='coordinator'?'selected':''}>Coordinator</option>
+        <option value="admin" ${u.role==='admin'?'selected':''}>Admin</option>
+      </select>
+    ` : `<span class="role-badge ${roleClass}">${escH(u.role)}</span>`;
+
+    return `
+      <div class="user-card">
+        <div class="user-card-left">
+          ${avatar}
+          <div>
+            <div class="user-card-title">${escH(u.displayName || 'User')} ${isSelf?'(You)':''}</div>
+            <div class="user-card-sub">${escH(u.email || '')}</div>
+          </div>
+        </div>
+        <div>${roleSelector}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+window._changeUserRole = async function(uid, newRole) {
+  if(!isAdmin()) { showToast('⚠️ Only admins can change user roles'); return; }
+  try {
+    await updateDoc(userRef(uid), { role: newRole, updatedAt: serverTimestamp() });
+    showToast(`Updated user role to ${newRole}`);
+  } catch(err) {
+    console.error('[Users] Failed to update role:', err);
+    showToast('❌ Failed to update role: ' + err.message);
+  }
+};
+
+function renderSettingsScreen() {
+  updateHeaderUserProfile();
+}
+
+// Data Migration & Hardening
+async function migrateLegacyExpenses() {
+  if(!isAdmin()) { showToast('⚠️ Admin access required to run schema migration'); return; }
+  showToast('🔄 Validating & migrating expense schema…', 3000);
+  try {
+    let migratedCount = 0;
+    const batch = writeBatch(db);
+
+    for(const e of state.expenses) {
+      let updated = false;
+      const patch = {};
+
+      // Ensure valid coordinator ID
+      if(!e.coordinatorId && e.paidByCoordId) {
+        patch.coordinatorId = e.paidByCoordId; updated = true;
+      }
+      if(!e.paidForType) {
+        patch.paidForType = 'my-group'; updated = true;
+      }
+      if(e.amount === undefined || isNaN(e.amount)) {
+        patch.amount = 0; updated = true;
+      }
+
+      if(updated) {
+        patch.updatedAt = serverTimestamp();
+        batch.update(expenseRef(e.id), patch);
+        migratedCount++;
+      }
+    }
+
+    if(migratedCount > 0) {
+      await batch.commit();
+      showToast(`✅ Successfully migrated ${migratedCount} expense documents!`);
+    } else {
+      showToast('✨ All expense schemas are up-to-date!');
+    }
+  } catch(err) {
+    console.error('[Migration] Failed:', err);
+    showToast('❌ Schema migration failed: ' + err.message);
+  }
+}
+
+// Demo fallback buttons
 function buildLoginScreen(){
   const container=document.getElementById('login-btns'); container.innerHTML='';
   state.coordinators.filter(c=>c.active).forEach((c,i)=>{
@@ -3780,18 +4249,12 @@ function buildLoginScreen(){
 }
 function loginAs(coord){
   state.currentUser=coord;
-  try{localStorage.setItem('ns_user',coord.id);}catch{}
+  state.userRole = coord.isAdmin ? 'admin' : 'coordinator';
   document.getElementById('login-screen').classList.remove('active'); document.getElementById('login-screen').style.display='none';
   document.getElementById('app-shell').style.display='block';
-  updateHeaderUser(coord); showScreen('home'); showToast('👋 Welcome, '+coord.name+'!');
+  updateHeaderUserProfile(); showScreen('home'); showToast('👋 Switched to '+coord.name);
 }
-function updateHeaderUser(coord){
-  const i=state.coordinators.findIndex(c=>c.id===coord.id); const color=coordColor(i<0?0:i);
-  ['hdr-avatar','grp-avatar','exp-avatar','stl-avatar'].forEach(id=>{ const el=document.getElementById(id); if(el){el.textContent=getInitials(coord.name);el.style.background=color;} });
-  setEl('hdr-name',coord.name); setEl('grp-name',coord.name); setEl('exp-uname',coord.name); setEl('stl-uname',coord.name);
-  setEl('hdr-role',coord.isAdmin?'Trip Admin':'Coordinator · '+(coord.groupName||''));
-}
-document.getElementById('switch-user-btn').addEventListener('click',()=>{ document.getElementById('app-shell').style.display='none'; document.getElementById('login-screen').style.display='flex'; document.getElementById('login-screen').classList.add('active'); buildLoginScreen(); });
+document.getElementById('switch-user-btn').addEventListener('click',()=>showScreen('settings'));
 
 // ========================================
 // Theme
@@ -3815,12 +4278,13 @@ async function start(){
     await initTrip();
     await initCoordinators();
     startListeners();
+    initAuthListener();
   } catch(err) {
     console.error('[Start]',err);
     if(err.code==='permission-denied'){
       document.getElementById('home-loading').classList.add('hidden');
       document.getElementById('home-error').classList.remove('hidden');
-      setEl('home-err-msg','Permission denied. Set Firestore rules to: allow read, write: if true;');
+      setEl('home-err-msg','Permission denied. Check Firestore security rules.');
     }
     setStatus('error','Error');
   }

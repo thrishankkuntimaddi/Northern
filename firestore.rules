@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/trips/varanasi-trip-2026/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        getUserData().role == 'admin' ||
+        request.auth.token.email == 'manideep@gmail.com' // Fallback admin email if needed
+      );
+    }
+
+    function isCoordinator() {
+      return isAuthenticated() && (
+        getUserData().role == 'admin' || 
+        getUserData().role == 'coordinator'
+      );
+    }
+
+    match /trips/{tripId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+
+      match /users/{userId} {
+        allow read: if isAuthenticated();
+        allow create, update: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+        allow delete: if isAdmin();
+      }
+
+      match /coordinators/{coordId} {
+        allow read: if isAuthenticated();
+        allow write: if isAdmin();
+      }
+
+      match /expenses/{expenseId} {
+        allow read: if isAuthenticated();
+        allow create: if isCoordinator();
+        allow update, delete: if isCoordinator() && (
+          resource.data.paidBy == request.auth.uid || 
+          resource.data.paidByCoordId == getUserData().coordId ||
+          isAdmin()
+        );
+      }
+
+      match /transfers/{transferId} {
+        allow read: if isAuthenticated();
+        allow create: if isCoordinator();
+        allow update, delete: if isCoordinator() && (
+          resource.data.fromCoordId == getUserData().coordId || 
+          resource.data.toCoordId == getUserData().coordId ||
+          isAdmin()
+        );
+      }
+
+      match /logs/{logId} {
+        allow read: if isAuthenticated();
+        allow create: if isAuthenticated();
+        allow update, delete: if isAdmin();
+      }
+    }
+  }
+}
